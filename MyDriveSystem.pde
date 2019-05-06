@@ -1,19 +1,14 @@
 class MyDriveSystem extends DriveSystem {
   int svr, svl;
-  int rightSpeed, leftSpeed;
-  int approach=0;
-  int step;
+  int leftSpeed, rightSpeed;
   int mymillis;
   int standardspeed=40;
   int firstturn=5000;
-  int recordsvr;
-  int linejump;
   int turncoef=4;
   int secondturn=15000;
   MyDriveSystem(Car myCar) {
     super(myCar);
     mymillis=millis();
-    noSense=0;
   }
   void drive() {
     svr=myCar.sensorValueRight/3;
@@ -22,10 +17,7 @@ class MyDriveSystem extends DriveSystem {
     //if (noSense<=0) {
     //OUTSIDE LANE
     if ((millis()-mymillis)<firstturn) {
-
-
       followInsideRight(svr, svl);
-      linejump=0;
     }
     //START MERGE in
     if ((millis()-mymillis)>firstturn && (millis()-mymillis)<firstturn+2000) {
@@ -56,9 +48,6 @@ class MyDriveSystem extends DriveSystem {
     //println("FollowLine");
     leftSpeed=standardspeed;
     rightSpeed=standardspeed;
-
-    //println(millis()-mymillis);
-    recordsvr=svr;
     myCar.setLeftSpeed(leftSpeed+turncoef-svr);
     myCar.setRightSpeed(rightSpeed);
   }
@@ -66,19 +55,10 @@ class MyDriveSystem extends DriveSystem {
   void followOutsideLeft(int svr, int svl) {
     leftSpeed=standardspeed;
     rightSpeed=standardspeed;
-
-    //println(millis()-mymillis);
-    recordsvr=svr;
     myCar.setLeftSpeed(leftSpeed);
     myCar.setRightSpeed(rightSpeed+(turncoef-2)-svl);
   }
 
-  void gostraight() {
-    leftSpeed=standardspeed;
-    rightSpeed=standardspeed;
-    myCar.setLeftSpeed(leftSpeed);
-    myCar.setRightSpeed(rightSpeed);
-  }
   void followInsideLeft(int svr, int svl) {
     leftSpeed=standardspeed;
     rightSpeed=standardspeed;
@@ -93,6 +73,3 @@ class MyDriveSystem extends DriveSystem {
     myCar.setRightSpeed(rightSpeed);
   }
 }
-//noSense--;
-//constrain(noSense,0, 100000);
-//}
