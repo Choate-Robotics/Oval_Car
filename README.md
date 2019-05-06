@@ -5,20 +5,14 @@ The goal of this challenge is to create a drive system that will allow the car t
 ![GIF of Oval Car Solution](https://github.com/Choate-Robotics/Oval_Car/blob/master/OvalCarsolution.gif)
 
 
-
 ### Hints about the DriveSystem
 
 DriveSystem is again an abstract class that needs to be subclassed to create a strategy for how the car is to move.
 
 You will want the robot to act differently at different times. This time I suggest that you use the `millis()`to do this. You may want to record the starting time of your loop in a class variable and measure time from that start.
 
-You should be able to avoid the `noSense` business form before by using `millis()`.
+You should be able to avoid the `noSense` business from before by using `millis()`.
 
-The `setNoSense` method is a way to create a delay before the drive function determines another action. Basically actions are only
-
-taken when noSense is equal to 0.
-
-In general you should use this template for your drive
 
 ## API for the Car object
 
