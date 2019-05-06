@@ -5,7 +5,7 @@ Oval o;
 void setup(){
   size(1000,800);
   o = new Oval(900,700,3);
-  myCar=new Car(100, 40, PI/2+.1);
+  myCar=new Car(width/2, 100, PI/2+.1);
   drive=new MyDriveSystem(myCar);
   //drive=new DriveSystem(myCar);
 }
