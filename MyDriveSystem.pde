@@ -3,9 +3,10 @@ class MyDriveSystem extends DriveSystem {
   int rightSpeed, leftSpeed;
   int approach=0;
   int step;
-
+  int mymillis;
   MyDriveSystem(Car myCar) {
     super(myCar);
+    mymillis=millis();
     noSense=0;
   }
   void drive() {
@@ -19,8 +20,14 @@ class MyDriveSystem extends DriveSystem {
     rightSpeed=20;
 
     
-    myCar.setLeftSpeed(leftSpeed);
+    myCar.setLeftSpeed(leftSpeed+15-svr);
     myCar.setRightSpeed(rightSpeed);
+    if ((millis()-mymillis)>10000 && (millis()-mymillis)<11000){
+      leftSpeed=25;
+      rightSpeed=20;
+      myCar.setLeftSpeed(leftSpeed);
+    myCar.setRightSpeed(rightSpeed);
+    }
   }
 }
 //noSense--;
