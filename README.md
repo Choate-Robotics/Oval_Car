@@ -2,7 +2,9 @@
 
 The goal of this challenge is to create a drive system that will allow the car to navigate a two lane system. We would like to see the car start in one lane. You can know that the car starts in the outside lane. The car must spend a few seconds in each lane and then change to the other lane.
 
-![GIF of Robot Solving Maze](https://github.com/Choate-Robotics/Maze_Car/blob/master/Maze%20Solver.gif)
+![GIF of Oval Car Solution](https://github.com/Choate-Robotics/Oval_Car/blob/master/OvalCarsolution.gif)
+
+
 
 ### Hints about the DriveSystem
 
