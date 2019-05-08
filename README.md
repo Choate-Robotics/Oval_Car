@@ -41,5 +41,3 @@ Draw the car on the canvas.
 `void move()`
 
 Compute the new position of the car based on the motor settings.
-
-![](https://imgs.xkcd.com/comics/success.png)
