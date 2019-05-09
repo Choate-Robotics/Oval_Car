@@ -40,28 +40,23 @@ class MyDriveSystem extends DriveSystem {
       switchup();
     }
     
-    if (pasttime > 9800 && pasttime < 15000)
+    if (pasttime > 9800 && pasttime < 13100)
     {
       goRightwatchRight();
     }
     
-    if (pasttime > 15000 && pasttime < 15800)
+    if (pasttime > 13100 && pasttime < 14350)
     {
       switchup2(); 
     }
     
-    if (pasttime > 15800 && pasttime < 26500)
+    if (pasttime > 14350 && pasttime < 26500)
     {
-      stradle();
-      //goRightwatchRight();
+      goRightwatchRight();
     } 
     
-    if (pasttime > 26500 && pasttime < 27500)
-    {
-      switchup2();
-    } 
    
-   if (pasttime > 27500)
+   if (pasttime > 26500)
    {
      cartime = millis();
    }
@@ -118,7 +113,7 @@ class MyDriveSystem extends DriveSystem {
     if (myCar.sensorValueRight < 30 && myCar.sensorValueLeft < 30)
   {
       myCar.setLeftSpeed(60);
-      myCar.setRightSpeed(55);      //go to left to find oval 
+      myCar.setRightSpeed(55);      //go to right to find oval 
     }
 
     else if (myCar.sensorValueRight > 200)
@@ -130,8 +125,8 @@ class MyDriveSystem extends DriveSystem {
   
   void switchup2()
   {
-    myCar.setLeftSpeed(26); 
-    myCar.setRightSpeed(27);  
+    myCar.setLeftSpeed(34); 
+    myCar.setRightSpeed(35);  
   }
 
   
