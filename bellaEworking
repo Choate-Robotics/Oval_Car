@@ -1,0 +1,98 @@
+class MyDriveSystem extends DriveSystem {
+  int svr, svl;
+  int rightSpeed, leftSpeed;
+  int approach=0;
+  int step;
+  int robotTime;
+  
+  MyDriveSystem(Car myCar) { //constructor
+    super(myCar);
+    noSense=0;
+    robotTime=millis();
+  }
+  
+
+  void drive() {
+int elapsedTime=millis()-robotTime;
+    //if (noSense<=0) {
+    svr=myCar.sensorValueRight;
+    svl=myCar.sensorValueLeft;
+if (elapsedTime<5000){
+  println("restart");
+  if (svl<100 && svr > 100){ //right sensor is sensing
+    myCar.setRightSpeed(10);
+    //myCar.setLeftSpeed(int(map(myCar.sensorValueLeft, 0, 150, 50, 30)));
+    myCar.setLeftSpeed(5);
+  } else if (svl <100 && svr < 100){
+    myCar.setRightSpeed(30);
+    myCar.setLeftSpeed(45);
+  } else if (svl > 100 && svr < 100){
+    myCar.setRightSpeed(0);
+    myCar.setLeftSpeed(10);
+  }
+} else if (elapsedTime>5000 && elapsedTime<8000){
+    if (myCar.sensorValueLeft<100 && myCar.sensorValueRight<100){
+      myCar.setLeftSpeed(120);
+      myCar.setRightSpeed(120);
+    }
+    //myCar.sensorValueRight
+    if (myCar.sensorValueLeft<100 && myCar.sensorValueRight>40){
+      myCar.setLeftSpeed(75);
+      myCar.setRightSpeed(20);
+    }
+    if (myCar.sensorValueLeft>160 && myCar.sensorValueRight<160){
+      myCar.setRightSpeed(50);
+      myCar.setLeftSpeed(35);
+    }
+} else if (elapsedTime>8000 && elapsedTime <12000){
+    if (svl<100 && svr > 100){
+    myCar.setRightSpeed(15);
+    //myCar.setLeftSpeed(int(map(myCar.sensorValueLeft, 0, 150, 50, 30)));
+    myCar.setLeftSpeed(5);
+  } else if (svl <100 && svr < 100){
+    myCar.setRightSpeed(30);
+    myCar.setLeftSpeed(35);
+  } else if (svl > 100 && svr < 100){
+    myCar.setRightSpeed(0);
+    myCar.setLeftSpeed(10);
+  }
+} //NEW STUFF HERE
+  else if (elapsedTime > 12000 && elapsedTime<13000){
+      myCar.setLeftSpeed(5);
+      myCar.setRightSpeed(12);
+println("turning");
+  }   else if (elapsedTime > 13000 && elapsedTime<15000){
+          if (myCar.sensorValueLeft<100 && myCar.sensorValueRight<100){
+      myCar.setLeftSpeed(20);
+      myCar.setRightSpeed(20);
+    }
+    //myCar.sensorValueRight
+    if (myCar.sensorValueLeft<100 && myCar.sensorValueRight>40){
+      myCar.setLeftSpeed(75);
+      myCar.setRightSpeed(20);
+    }
+    if (myCar.sensorValueLeft>160 && myCar.sensorValueRight<160){
+      myCar.setRightSpeed(50);
+      myCar.setLeftSpeed(35);
+    } 
+}  else if (elapsedTime > 15000 && elapsedTime<16000){
+      myCar.setLeftSpeed(5);
+      myCar.setRightSpeed(8);
+println("turning"); 
+} else if (elapsedTime > 16000 && elapsedTime < 24000){
+      if (svl<100 && svr > 100){
+    myCar.setRightSpeed(15);
+    //myCar.setLeftSpeed(int(map(myCar.sensorValueLeft, 0, 150, 50, 30)));
+    myCar.setLeftSpeed(5);
+  } else if (svl <100 && svr < 100){
+    myCar.setRightSpeed(30);
+    myCar.setLeftSpeed(35);
+  } else if (svl > 100 && svr < 100){
+    myCar.setRightSpeed(0);
+    myCar.setLeftSpeed(10);
+  }
+} else {
+robotTime = millis(); //restart
+}
+  
+    } }
